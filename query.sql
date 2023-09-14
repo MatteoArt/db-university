@@ -10,7 +10,10 @@ FROM  `courses`
 WHERE `cfu` > 10;
 
 --3.
-
+SELECT *, 
+TIMESTAMPDIFF(YEAR,`date_of_birth`,CURDATE()) as `age`
+FROM `students`
+WHERE TIMESTAMPDIFF(YEAR,`date_of_birth`,CURDATE()) > 30;
 
 
 --4.
@@ -21,7 +24,10 @@ AND `year` = 1;
 
 
 --5.
-
+SELECT * 
+FROM `exams` 
+WHERE IF(`hour` > '14:00', 'pomeriggio', 'mattino') = 'pomeriggio'
+AND (`date` = '2020-06-20');
 
 
 
@@ -35,3 +41,6 @@ SELECT COUNT(*)
 FROM `departments`;
 
 --8.
+SELECT COUNT(*)
+FROM `teachers`
+WHERE `phone` IS NULL;
