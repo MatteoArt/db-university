@@ -14,3 +14,24 @@ WHERE `cfu` > 10;
 
 
 --4.
+SELECT *
+FROM `courses`
+WHERE `period` = 'I semestre'
+AND `year` = 1;
+
+
+--5.
+
+
+
+
+--6.
+SELECT *
+FROM `degrees`
+WHERE `level` = 'magistrale';
+
+--7.
+SELECT COUNT(*)
+FROM `departments`;
+
+--8.
