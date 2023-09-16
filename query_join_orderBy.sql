@@ -26,6 +26,16 @@ INNER JOIN `teachers`
 ON `course_teacher`.`teacher_id` = `teachers`.`id`
 WHERE `teachers`.`id` = 44;
 
+--4.
+SELECT `students`.`name`, `students`.`surname`, `degrees`.`name`, `degrees`.`level`,
+`departments`.`name`
+FROM `students`
+INNER JOIN `degrees`
+ON `degrees`.`id` = `students`.`degree_id`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+ORDER BY `students`.`name`, `students`.`surname` ASC;
+
 
 --5.
 SELECT `degrees`.`name`, `degrees`.`level`, `courses`.`name`, `courses`.`year`,
@@ -51,3 +61,14 @@ ON `courses`.`degree_id` = `degrees`.`id`
 INNER JOIN `departments`
 ON `degrees`.`department_id` = `departments`.`id`
 WHERE `departments`.`name` = 'Dipartimento di Matematica';
+
+--7. BONUS 
+
+
+
+
+
+
+
+
+--QUERY CON GROUP BY
