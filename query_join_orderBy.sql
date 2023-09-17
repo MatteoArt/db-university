@@ -68,9 +68,6 @@ WHERE `departments`.`name` = 'Dipartimento di Matematica';
 
 
 
-
-
-
 --QUERY CON GROUP BY
 
 --1.
