@@ -72,3 +72,26 @@ WHERE `departments`.`name` = 'Dipartimento di Matematica';
 
 
 --QUERY CON GROUP BY
+
+--1.
+SELECT YEAR(`enrolment_date`) AS `year`, COUNT(`id`) AS `number_of_members`
+FROM `students`
+GROUP BY `year`;
+
+--2.
+SELECT `office_address`, COUNT(`id`) AS `number_teachers`
+FROM `teachers`
+GROUP BY `office_address`;
+
+--3.
+SELECT `exam_id` AS `appello_esame`, ROUND(AVG(`vote`)) AS `media_voti`
+FROM `exam_student`
+GROUP BY `exam_id`;
+
+--4. 
+SELECT `degrees`.`department_id` AS `numero_dipartimento`, `departments`.`name` AS `nome_dipartimento`,
+COUNT(`degrees`.`id`) as `corsi_di_laurea`
+FROM `degrees`
+INNER JOIN `departments`
+ON `degrees`.`department_id` = `departments`.`id`
+GROUP BY `department_id`;
