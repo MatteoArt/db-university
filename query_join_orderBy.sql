@@ -63,7 +63,16 @@ ON `degrees`.`department_id` = `departments`.`id`
 WHERE `departments`.`name` = 'Dipartimento di Matematica';
 
 --7. BONUS 
-
+SELECT `students`.`id`, `students`.`name`, `students`.`surname`, `courses`.`name`,
+COUNT(`exam_student`.`vote`) AS `numero_tentativi`, MAX(`exam_student`.`vote`) AS `voto_massimo`
+FROM `students`
+INNER JOIN `exam_student`
+ON `students`.`id` = `exam_student`.`student_id`
+INNER JOIN `exams`
+ON `exams`.`id` = `exam_student`.`exam_id`
+INNER JOIN `courses`
+ON `courses`.`id` = `exams`.`course_id`
+GROUP BY `students`.`id`, `courses`.`id` HAVING `voto_massimo` >= 18;
 
 
 
